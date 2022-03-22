@@ -1,5 +1,5 @@
 <launch>
-    <!-- Similar arguments in yolov5/detect.py -->
+    <!-- Detection configuration -->
     <arg name="weights"               default="yolov5m.pt"/>
     <arg name="data"                  default="$(find yolov5_ros)/src/yolov5/data/coco128.yaml"/>
     <arg name="confidence_threshold"  default="0.5"/>
@@ -23,31 +23,32 @@
     <arg name="output_topic"            default="/yolov5/detections"/>
 
     <!-- Optional topic (publishing annotated image) -->
-    <arg name="publish_image"           default="false"/>
+    <arg name="publish_image"           default="true"/>
     <arg name="output_image_topic"      default="/yolov5/image_out"/>
 
 
     <node pkg="yolov5_ros" name="detect" type="detect.py" output="screen">
-        <param name="yolo_weights_path"     value="$(find yolov5_ros)/weights"/>
         <param name="weights"               value="yolov5m.pt"/>
-        <!-- <arg name="image_size"/> -->
+        <param name="data"                  value="$(arg data)"/>
         <param name="confidence_threshold"  value="$(arg confidence_threshold)"/>
         <param name="iou_threshold"         value="$(arg iou_threshold)" />
         <param name="maximum_detections"    value="$(arg maximum_detections)"/>
         <param name="device"                value="$(arg device)" />
         <param name="agnostic_nms"          value="$(arg agnostic_nms)" />
         <param name="line_thickness"        value="$(arg line_thickness)"/>
-        <param name="input_image_topic"     value="$(arg input_image_topic)"/>
-        <param name="publish_image"         value="$(arg publish_image)"/>
-        <param name="output_image_topic"    value="$(arg output_image_topic)"/>
-        <param name="output_topic"          value="$(arg output_topic)"/>
         <param name="dnn"                   value="$(arg dnn)"/>
         <param name="half"                  value="$(arg half)"/>
-        <param name="data"                  value="$(arg data)"/>
-        <param name="view_image"            value="$(arg view_image)"/>
+
         <param name="inference_size_h"      value="$(arg inference_size_h)"/>
         <param name="inference_size_w"      value="$(arg inference_size_w)"/>
-        
+
+        <param name="input_image_topic"     value="$(arg input_image_topic)"/>
+        <param name="output_topic"          value="$(arg output_topic)"/>
+
+        <param name="view_image"            value="$(arg view_image)"/>
+
+        <param name="publish_image"         value="$(arg publish_image)"/>
+        <param name="output_image_topic"    value="$(arg output_image_topic)"/>
     </node>
 
 </launch>
