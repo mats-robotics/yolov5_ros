@@ -20,7 +20,7 @@ cd <ros_workspace>
 catkin build yolov5_ros # build the ROS package
 ```
 ## Basic usage
-Change the parameter for input image topic in launch/yolov5.launch to ROS topic with message type of `sensor_msgs/Image` or `sensor_msgs/CompressedImage`. Other parameters can be modified or used as is.
+Change the parameter for `input_image_topic` in launch/yolov5.launch to any ROS topic with message type of `sensor_msgs/Image` or `sensor_msgs/CompressedImage`. Other parameters can be modified or used as is.
 
 * Launch the node:
 ```bash
