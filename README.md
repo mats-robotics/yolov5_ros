@@ -31,3 +31,8 @@ roslaunch yolov5_ros yolov5.launch
 * Put your weights into yolov5_ros/src/yolov5
 * Put the yaml file for your dataset classes into yolov5_ros/src/yolov5/data
 * Change related ROS parameters in yolov5.launch: `weights`,  `data`
+
+## Reference
+* YOLOv5 official repository: https://github.com/ultralytics/yolov5
+* YOLOv3 ROS PyTorch: https://github.com/eriklindernoren/PyTorch-YOLOv3
+* Darknet ROS: https://github.com/leggedrobotics/darknet_ros
