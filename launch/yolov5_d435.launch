@@ -2,7 +2,7 @@
     <!-- Detection configuration -->
     <arg name="weights"               default="yolov5m.pt"/>
     <arg name="data"                  default="$(find yolov5_ros)/src/yolov5/data/coco128.yaml"/>
-    <arg name="confidence_threshold"  default="0.75"/>
+    <arg name="confidence_threshold"  default="0.5"/>
     <arg name="iou_threshold"         default="0.45"/>
     <arg name="maximum_detections"    default="1000"/>
     <arg name="device"                default="0"/>
@@ -16,7 +16,7 @@
     <arg name="inference_size_w"      default="640"/>
     
     <!-- Visualize using OpenCV window -->
-    <arg name="view_image"            default="false"/>
+    <arg name="view_image"            default="true"/>
 
     <!-- ROS topics -->
     <arg name="input_image_topic"       default="/camera/color/image_raw/compressed"/>
@@ -50,7 +50,7 @@
         <param name="publish_image"         value="$(arg publish_image)"/>
         <param name="output_image_topic"    value="$(arg output_image_topic)"/>
     </node>
-    <!-- <include file="$(find camera_launch)/launch/d435.launch"/> -->
+    <include file="$(find camera_launch)/launch/d435.launch"/>
 
 
 </launch>
