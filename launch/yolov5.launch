@@ -16,7 +16,7 @@
     <arg name="inference_size_w"      default="640"/>
     
     <!-- Visualize using OpenCV window -->
-    <arg name="view_image"            default="false"/>
+    <arg name="view_image"            default="true"/>
 
     <!-- ROS topics -->
     <arg name="input_image_topic"       default="/camera/color/image_raw/compressed"/>
