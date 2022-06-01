@@ -19,6 +19,12 @@ pip install -r requirements.txt # install the requirements for yolov5
 cd <ros_workspace>
 catkin build yolov5_ros # build the ROS package
 ```
+* Make the Python script executable 
+```bash
+cd <ros_workspace>/src/yolov5_ros/src
+chmod +x detect.py
+```
+
 ## Basic usage
 Change the parameter for `input_image_topic` in launch/yolov5.launch to any ROS topic with message type of `sensor_msgs/Image` or `sensor_msgs/CompressedImage`. Other parameters can be modified or used as is.
 
