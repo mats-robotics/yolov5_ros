@@ -80,22 +80,22 @@ class Yolov5Detector:
 
         if self.compressed_input:
             self.image_sub = rospy.Subscriber(
-                input_image_topic, CompressedImage, self.callback, queue_size=1
+                input_image_topic, CompressedImage, self.callback, queue_size=1, buff_size=2**24
             )
         else:
             self.image_sub = rospy.Subscriber(
-                input_image_topic, Image, self.callback, queue_size=1
+                input_image_topic, Image, self.callback, queue_size=1, buff_size=2**24
             )
 
         # Initialize prediction publisher
         self.pred_pub = rospy.Publisher(
-            rospy.get_param("~output_topic"), BoundingBoxes, queue_size=10
+            rospy.get_param("~output_topic"), BoundingBoxes, queue_size=1
         )
         # Initialize image publisher
         self.publish_image = rospy.get_param("~publish_image")
         if self.publish_image:
             self.image_pub = rospy.Publisher(
-                rospy.get_param("~output_image_topic"), Image, queue_size=10
+                rospy.get_param("~output_image_topic"), Image, queue_size=1
             )
         
         # Initialize CV_Bridge
