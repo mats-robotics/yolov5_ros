@@ -28,7 +28,7 @@
 
 
     <node pkg="yolov5_ros" name="detect" type="detect.py" output="screen">
-        <param name="weights"               value="yolov5m.pt"/>
+        <param name="weights"               value="$(arg weights)"/>
         <param name="data"                  value="$(arg data)"/>
         <param name="confidence_threshold"  value="$(arg confidence_threshold)"/>
         <param name="iou_threshold"         value="$(arg iou_threshold)" />
