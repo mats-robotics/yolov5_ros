@@ -1,6 +1,6 @@
 <launch>
     <!-- Detection configuration -->
-    <arg name="weights" default="$(find yolov5_ros)/best.pt"/>
+    <arg name="weights" default="best.pt"/>
     <arg name="data" default="$(find yolov5_ros)/src/yolov5/data/coco128.yaml"/>
     <arg name="confidence_threshold" default="0.75"/>
     <arg name="iou_threshold" default="0.45"/>
