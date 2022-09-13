@@ -72,7 +72,7 @@ class Yolov5Detector:
             self.model.model.half() if self.half else self.model.model.float()
         bs = 1  # batch_size
         cudnn.benchmark = True  # set True to speed up constant image size inference
-        self.model.warmup(imgsz=(1 if self.pt else bs, 3, *self.img_size), half=self.half)  # warmup        
+        self.model.warmup()  # warmup        
         
         # Initialize subscriber to Image/CompressedImage topic
         input_image_type, input_image_topic, _ = get_topic_type(rospy.get_param("~input_image_topic"), blocking = True)
