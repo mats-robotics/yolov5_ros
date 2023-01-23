@@ -1,54 +1,54 @@
 <launch>
     <!-- Detection configuration -->
-    <arg name="weights"               default="yolov5m.pt"/>
-    <arg name="data"                  default="$(find yolov5_ros)/src/yolov5/data/coco128.yaml"/>
-    <arg name="confidence_threshold"  default="0.75"/>
-    <arg name="iou_threshold"         default="0.45"/>
-    <arg name="maximum_detections"    default="1000"/>
-    <arg name="device"                default="0"/>
-    <arg name="agnostic_nms"          default="true"/>
-    <arg name="line_thickness"        default="3"/>
-    <arg name="dnn"                   default="true"/>
-    <arg name="half"                  default="false"/>
-    
+    <arg name="weights" default="best.pt"/>
+    <arg name="data" default="$(find yolov5_ros)/src/yolov5/data/coco128.yaml"/>
+    <arg name="confidence_threshold" default="0.75"/>
+    <arg name="iou_threshold" default="0.45"/>
+    <arg name="maximum_detections" default="1000"/>
+    <arg name="device" default="0"/>
+    <arg name="agnostic_nms" default="true"/>
+    <arg name="line_thickness" default="3"/>
+    <arg name="dnn" default="true"/>
+    <arg name="half" default="false"/>
+
     <!-- replace imgsz -->
-    <arg name="inference_size_h"      default="640"/>
-    <arg name="inference_size_w"      default="640"/>
-    
+    <arg name="inference_size_h" default="640"/>
+    <arg name="inference_size_w" default="640"/>
+
     <!-- Visualize using OpenCV window -->
-    <arg name="view_image"            default="true"/>
+    <arg name="view_image" default="true"/>
 
     <!-- ROS topics -->
-    <arg name="input_image_topic"       default="/camera/color/image_raw/compressed"/>
-    <arg name="output_topic"            default="/yolov5/detections"/>
+    <arg name="input_image_topic" default="/main_camera/image_raw/compressed"/>
+    <arg name="output_topic" default="/yolov5/detections"/>
 
     <!-- Optional topic (publishing annotated image) -->
-    <arg name="publish_image"           default="false"/>
-    <arg name="output_image_topic"      default="/yolov5/image_out"/>
+    <arg name="publish_image" default="false"/>
+    <arg name="output_image_topic" default="/yolov5/image_out"/>
 
 
     <node pkg="yolov5_ros" name="detect" type="detect.py" output="screen">
-        <param name="weights"               value="$(arg weights)"/>
-        <param name="data"                  value="$(arg data)"/>
-        <param name="confidence_threshold"  value="$(arg confidence_threshold)"/>
-        <param name="iou_threshold"         value="$(arg iou_threshold)" />
-        <param name="maximum_detections"    value="$(arg maximum_detections)"/>
-        <param name="device"                value="$(arg device)" />
-        <param name="agnostic_nms"          value="$(arg agnostic_nms)" />
-        <param name="line_thickness"        value="$(arg line_thickness)"/>
-        <param name="dnn"                   value="$(arg dnn)"/>
-        <param name="half"                  value="$(arg half)"/>
+        <param name="weights" value="$(arg weights)"/>
+        <param name="data" value="$(arg data)"/>
+        <param name="confidence_threshold" value="$(arg confidence_threshold)"/>
+        <param name="iou_threshold" value="$(arg iou_threshold)" />
+        <param name="maximum_detections" value="$(arg maximum_detections)"/>
+        <param name="device" value="$(arg device)" />
+        <param name="agnostic_nms" value="$(arg agnostic_nms)" />
+        <param name="line_thickness" value="$(arg line_thickness)"/>
+        <param name="dnn" value="$(arg dnn)"/>
+        <param name="half" value="$(arg half)"/>
 
-        <param name="inference_size_h"      value="$(arg inference_size_h)"/>
-        <param name="inference_size_w"      value="$(arg inference_size_w)"/>
+        <param name="inference_size_h" value="$(arg inference_size_h)"/>
+        <param name="inference_size_w" value="$(arg inference_size_w)"/>
 
-        <param name="input_image_topic"     value="$(arg input_image_topic)"/>
-        <param name="output_topic"          value="$(arg output_topic)"/>
+        <param name="input_image_topic" value="$(arg input_image_topic)"/>
+        <param name="output_topic" value="$(arg output_topic)"/>
 
-        <param name="view_image"            value="$(arg view_image)"/>
+        <param name="view_image" value="$(arg view_image)"/>
 
-        <param name="publish_image"         value="$(arg publish_image)"/>
-        <param name="output_image_topic"    value="$(arg output_image_topic)"/>
+        <param name="publish_image" value="$(arg publish_image)"/>
+        <param name="output_image_topic" value="$(arg output_image_topic)"/>
     </node>
     <!-- <include file="$(find camera_launch)/launch/d435.launch"/> -->
 

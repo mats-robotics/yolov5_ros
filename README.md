@@ -33,7 +33,7 @@ Change the parameter for `input_image_topic` in launch/yolov5.launch to any ROS 
 roslaunch yolov5_ros yolov5.launch
 ```
 
-## Using custom weights and dataset (not tested)
+## Using custom weights and dataset (Working)
 * Put your weights into `yolov5_ros/src/yolov5`
 * Put the yaml file for your dataset classes into `yolov5_ros/src/yolov5/data`
 * Change related ROS parameters in yolov5.launch: `weights`,  `data`
