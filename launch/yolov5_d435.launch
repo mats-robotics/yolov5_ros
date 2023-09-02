@@ -19,7 +19,7 @@
     <arg name="view_image" default="true" />
 
     <!-- ROS topics -->
-    <arg name="input_image_topic" default="/clover0/main_camera/image_raw" />
+    <arg name="input_image_topic" default="/camera/color/image_raw/compressed" />
     <arg name="output_topic" default="/yolov5/detections" />
 
     <!-- Optional topic (publishing annotated image) -->
